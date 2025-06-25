@@ -1,16 +1,5 @@
-resource "aws_instance" "web" {
-  ami                    = "ami-09e6f87a47903347c"
-  instance_type          = "t2.micro"
-  key_name               = "amod"   
-  vpc_security_group_ids = [aws_security_group.group.id]
-
-  tags = {
-    Name = "terraform-ec2-instance"
-  }
-}
-
-resource "aws_security_group" "group" {
-  name        = "web-security-top
+resource "aws_security_group" "webser" {
+  name        = "web-security-group"
   description = "Allow SSH and HTTP (3000)"
 
   ingress {
@@ -35,3 +24,13 @@ resource "aws_security_group" "group" {
   }
 }
 
+resource "aws_instance" "webserver" {
+  ami                    = "ami-09e6f87a47903347c"
+  instance_type          = "t2.micro"
+  key_name               = "amod" 
+  vpc_security_group_ids = [aws_security_group.webser.id]
+
+  tags = {
+    Name = "terraform-ec2-instance"
+  }
+}
