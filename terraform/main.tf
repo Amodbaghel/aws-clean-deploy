@@ -1,5 +1,5 @@
 resource "aws_security_group" "webser" {
-  name        = "hell"
+  name        = "hel"
   description = "Allow SSH and HTTP (3000)"
 
   ingress {
@@ -25,7 +25,7 @@ resource "aws_security_group" "webser" {
 }
 
 resource "aws_instance" "webserver" {
-  ami                    = "ami-09e6f87a47903347c"
+  ami                    = "ami-020cba7c55df1f615"
   instance_type          = "t2.micro"
   key_name               = "amod" 
   vpc_security_group_ids = [aws_security_group.webser.id]
