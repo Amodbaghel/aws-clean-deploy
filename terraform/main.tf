@@ -1,7 +1,7 @@
 resource "aws_instance" "web" {
   ami           = "ami-09e6f87a47903347c"
   instance_type = "t2.micro"
-  key_name      = "amod.pem"   
+  key_name      = "amod"   
   vpc_security_group_ids = [aws_security_group.group.name]
 
   tags = {
