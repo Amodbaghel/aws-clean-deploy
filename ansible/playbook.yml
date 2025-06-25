@@ -35,7 +35,7 @@
         state: present
       become_user: ec2-user
 
-    - name: Start the React app in background
+    - name: Start the React app background
       shell: |
         nohup npm start > output.log 2>&1 &
       args:
