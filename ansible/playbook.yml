@@ -1,0 +1,31 @@
+- name: Setup React App on EC2
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install Node.js and npm
+      yum:
+        name: nodejs
+        state: present
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
+
+    - name: Install git
+      yum:
+        name: git
+        state: present
+
+    - name: Clone React app repo
+      git:
+        repo: https://github.com/Amodbaghel/aws-devops-handson.git
+        dest: /home/ec2-user/react-app
+
+    - name: Install app dependencies
+      npm:
+        path: /home/ec2-user/react-app
+        state: present
+
+    - name: Start the React app
+      shell: |
+        cd /home/ec2-user/react-app
+        npm start &
