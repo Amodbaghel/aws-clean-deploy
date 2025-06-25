@@ -1,5 +1,5 @@
 resource "aws_security_group" "webser" {
-  name        = "hello"
+  name        = "hell"
   description = "Allow SSH and HTTP (3000)"
 
   ingress {
