@@ -33,4 +33,4 @@ jobs:
 
       - name: Setup Ansible
         run: |
-          sudo yum update
+          sudo apt update
